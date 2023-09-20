@@ -1,21 +1,25 @@
 import * as React from 'react';
-import { Box, Paper, Stack, Button, Typography, Popover } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Paper, Stack, Button, Typography, Popover, Badge, List, ListItem, ListItemText, Divider, Link } from '@mui/material';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-// import DialogType1 from './components/DialogType1';
-// import DialogType2 from './components/DialogType2';
+
+
+const theme = createTheme({
+  //기존에 전달해드린 파일은 React 적용 전으로 palette 설정이 안되어 있음, 충돌 시 다른 이름으로 변경하시기 바랍니다.
+  palette: { 
+    primary: { // = _var.scss/$Core
+      main: '#5851df',
+      contrastText: '#ffffff',
+    },
+    submit: {
+      main: '#ADA7EB',  // 신규색상
+    }
+  },  
+});
 
 function App() {
-  const [open1, setOpen1] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
-  // DialogType1
-  const handleClickOpen1 = () => { setOpen1(true); };
-  const handleClose1 = () => { setOpen1(false); };
-  // DialogType2
-  const handleClickOpen2 = () => { setOpen2(true); };
-  const handleClose2 = () => { setOpen2(false); };
-
-
-
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -31,58 +35,79 @@ function App() {
 
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-      <Paper sx={{ m: 3, p: 2 }}>
-        <Typography variant="caption" sx={{ marginBottom: 1, fontWeight: 600 }}>Sample Preview</Typography>
-        <Typography variant="subtitle1" mb={2}>Intellytics Dashboard 다중 선택 기능 Dialog</Typography>
-        <Stack spacing={1} direction="row">
-          <Button 
-            variant="outlined" 
-            color="primary" 
-            size="small"
-            aria-describedby={id} 
-            onClick={handleClick}
-          >
-            DialogType1: New Users/Registered
-          </Button>
-          <Popover
-            className='experiment-popover type1'
-            id={id}
-            open={open}
-            anchorEl={anchorEl}
-            onClose={handleClose}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-          >
-            <Box className='experiment-popover-header'>
-              <Typography variant='body1'>
-                선택된 정보를 #Tag 와 하위 chip으로 보여줌 
-                Tag : 그룹
-                chip: 세부사항  
-              </Typography> 
-
-            </Box>
-            <PerfectScrollbar className='experiment-popover-body'>
-
-            </PerfectScrollbar>
-              <Typography>The content of the Popover.</Typography>
-          </Popover>
-          <Button
-            variant="outlined" 
-            color="primary" 
-            size="small"
-          >
-            DialogType2: Global
-          </Button>
-        </Stack>
+    <ThemeProvider theme={theme}>
+      <Paper sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', m: 3, p: 2 }} >
+        <Stack>
+          <Typography variant="caption" sx={{ fontWeight: 600 }}>Sample Preview</Typography>
+          <Typography variant="subtitle1">Intellytics Dashboard Notification</Typography>
+        </Stack>      
+        <Button
+          color="primary" //color는 배경색에 맞게 변경하여 사용
+          size="small"
+          aria-describedby={id} 
+          onClick={handleClick}
+        >
+          <Badge color="error" badgeContent={100}>
+            <NotificationsIcon/>
+          </Badge>
+        </Button>
+        <Popover
+          className='custom-popover'
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+        >
+          <List className='notification'>
+            <ListItem>
+              <ListItemText
+                primary={
+                  <>
+                    <Typography variant='h6' noWrap>Notification Title</Typography>
+                    <Typography variant='caption'>2023/01/01</Typography>
+                  </>
+                }
+                secondary={
+                  <>
+                    <Typography variant='body2' noWrap>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui fugit officiis, ab saepe iste distinctio architecto, odit dolores doloribus quae veritatis animi quidem. Perferendis quia sit recusandae praesentium, laborum iusto.
+                    </Typography>
+                    <Button variant="outlined" size='small' color='submit' endIcon={<NavigateNextRoundedIcon/>}>More</Button>
+                  </>
+                }
+              />
+            </ListItem>
+            <Divider/>
+            <ListItem>
+              <ListItemText
+                primary={
+                  <>
+                    <Typography variant='h6' noWrap>Notification Title Notification Title Notification Title</Typography>
+                    <Typography variant='caption'>2023/01/01</Typography>
+                  </>
+                }
+                secondary={
+                  <>
+                    <Typography variant='body2' noWrap>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui fugit officiis, ab saepe iste distinctio architecto, odit dolores doloribus quae veritatis animi quidem. Perferendis quia sit recusandae praesentium, laborum iusto.
+                    </Typography>
+                    <Button variant="outlined" size='small' color='submit' endIcon={<NavigateNextRoundedIcon/>}>More</Button>
+                  </>
+                }
+              />
+            </ListItem>
+          </List>          
+        </Popover>
       </Paper>
-    </Box>  
+    </ThemeProvider>
   );
 }
 
