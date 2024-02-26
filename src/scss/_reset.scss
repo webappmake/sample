@@ -9,30 +9,28 @@ body {
 	height: 100%;
 	position: relative;
 	overflow: hidden;
-	background-color: #fff;
-	color: #212529;
+	color: #000000;
 	font-family: $base_font_family;
-    font-size: 0.6771vw;
-    font-weight: normal;
-    line-height: 1.2;
-    margin-left: auto;
-    margin-right: auto;
+	font-size: max(0.7292vw, 14px);
+	font-weight: normal;
+	line-height: 1.2;
+	margin-left: auto;
+	margin-right: auto;
 	word-break: keep-all;
 	-ms-word-break: keep-all;
-	letter-spacing: .05rem;
 }
-* { box-sizing: border-box; }
+* { font-size: max(0.7292vw, 14px); box-sizing: border-box; font-family: $base_font_family; }
 h1, h2, h3, h4, h5, h6 { 
-	font-family: $sub_font_family;
+	font-family: $base_font_family;
 	margin: 0; 
 }
 ul, ol { list-style: none; }
 img, fieldset, input, button { border: none; }
 table { border-collapse: collapse; border-spacing: 0; }
-a, a:link, a:visited, a:hover, a:active { text-decoration: none; color: #333; }
-a:focus { outline: none !important; color: #333; }
+a, a:link, a:visited, a:hover, a:active { text-decoration: none; cursor: pointer; }
+a:focus { outline: none !important; }
 button, img { vertical-align: middle; }
-.skip, caption { //legend 제외: mui를 사용할 경우 스타일이 적용 안됨
+.skip, caption {
 	width: 0.0521vw;
 	height: 0.0521vw; 
 	overflow: hidden; 
@@ -50,14 +48,4 @@ em {
 	font-style: normal;
 	font-weight: 600; 
 }
-.center { text-align: center; }
-.left { text-align: left; }
-.right { text-align: right; }
-.text_red { color: #E076B6; } //color: #f5325c;
-.text_blue { color: #5851DF; }
-.m0 { margin: 0 !important; }
-.p0 { padding: 0 !important; }
-.mr_md { margin-right: $gutter_md; }
-.ml_md { margin-left: $gutter_md; }
-/* ------------------------------------------------------- FONTS ------------------------------------------------------- */
-body .container, h1 { line-height: 1.2 !important; }
+.required { color: $color-error; }

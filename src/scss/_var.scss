@@ -1,91 +1,40 @@
 /* ------------------------------------------------------- FONT ------------------------------------------------------- */
+@import "@fontsource/noto-sans-kr";
+@import '@fontsource/noto-sans-kr/200.css';
+@import '@fontsource/noto-sans-kr/300.css';
+@import '@fontsource/noto-sans-kr/400.css';
+@import '@fontsource/noto-sans-kr/500.css';
+@import '@fontsource/noto-sans-kr/600.css';
+@import '@fontsource/noto-sans-kr/700.css';
+@import '@fontsource/noto-sans-kr/800.css';
+
 $base_font_family: 'Noto Sans KR', 'Noto Sans KR', sans-serif !important; 
-$sub_font_family: 'Noto Sans KR', 'Noto Sans KR', sans-serif !important;
 /* ------------------------------------------------------- COLOR ------------------------------------------------------- */
-$color_primary: #0054a3; 
-$color_secondary: #a4abc5;
-$color_secondary_dark: #898fa7;
-$color_submit: #CECAF6; 
-$border: #e3ebf6;
-$border_dark: #d4d4d4;
-$gray: #888;
-$darkgray: #353f4d;
-$Core: #5851df; //#7d74e7;
+$primary: #5D5FEF;
+$secondary: #8486ff;
+$secondary-dark: #4A45BD;
+$bg-actived-dark: #A5A5E3;
+$color-white: #ffffff;
+$color-gray: #999999;
+$color-title: #000;
+$color-description: #7e7c77;
+$color-tooltip: #393690; 
+$color-background: #f4f4f4;
+$color-error: #ea1917;
+$color-lg: #A50034;
 /* ------------------------------------------------------- LAYOUT ------------------------------------------------------- */
-$header_height: 3.1250vw; //2.5vw; //3.1250vw;
-$footer_height: 2.6042vw;
-$lnb_width: 13.5417vw;
-$gutter_xs : 0.1563vw ;
-$gutter_sm : 0.3125vw ;
-$gutter_md: 0.6250vw ;
-$gutter_lg : 1.2500vw ;
-$gutter_lg : 0.9375vw ;
-$gutter_xl : 1.8750vw ;
-/*DXT radius 0으로 변경되서 일괄 적용*/
-$radius: 0; //0.2083vw;
-$radius_sm: 0; //0.1563vw;
-/* ------------------------------------------------------- MIXINS ------------------------------------------------------- */
-// Drop shadows
-@mixin shadow_bottom() {
-  -webkit-box-shadow: 0.00000vw 0.00000vw 0.74707vw 0.13184vw rgba(17, 17, 17, 0.05);
-     -moz-box-shadow: 0.00000vw 0.00000vw 0.74707vw 0.13184vw rgba(17, 17, 17, 0.05);
-          box-shadow: 0.00000vw 0.00000vw 0.74707vw 0.13184vw rgba(17, 17, 17, 0.05);
-}
-@mixin shadow_box() {
-  -webkit-box-shadow: 0.09766vw 0.19531vw 1.81641vw 1.11328vw rgba(17, 17, 17, 0.01);
-     -moz-box-shadow: 0.09766vw 0.19531vw 1.81641vw 1.11328vw rgba(17, 17, 17, 0.01);
-          box-shadow: 0.09766vw 0.19531vw 1.81641vw 1.11328vw rgba(17, 17, 17, 0.01);
-}
-@mixin shadow_header() {
-  -webkit-box-shadow: 0 0.2083vw 0.4167vw rgba(0, 0, 0, .15);
-     -moz-box-shadow: 0 0.2083vw 0.4167vw rgba(0, 0, 0, .15);
-          box-shadow: 0 0.2083vw 0.4167vw rgba(0, 0, 0, .15);
-}
-@mixin shadow_inset_top() {
-  -webkit-box-shadow: inset 0 0.2083vw 0.4167vw -0.3125vw rgba(0, 0, 0, .15);
-	   -moz-box-shadow: inset 0 0.2083vw 0.4167vw -0.3125vw rgba(0, 0, 0, .15);
-	        box-shadow: inset 0 0.2083vw 0.4167vw -0.3125vw rgba(0, 0, 0, .15);
-}
-@mixin shadow_inset_bottom() {
-  -webkit-box-shadow: inset 0 -0.5208vw 1.0417vw -0.3125vw rgba(0, 0, 0, .03);
-	   -moz-box-shadow: inset 0 -0.5208vw 1.0417vw -0.3125vw rgba(0, 0, 0, .03);
-	        box-shadow: inset 0 -0.5208vw 1.0417vw -0.3125vw rgba(0, 0, 0, .03);
-}
-// Opacity
-@mixin opacity($opacity) {
-  opacity: $opacity; /* All modern browsers */
-  $opacityIE: $opacity * 100;
-  filter: alpha(opacity=$opacityIE); /* For IE5~IE9 */
-}
-// Flex
-@mixin flex() {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-@mixin flex_inline() {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-// Composite Layer로 분리하여 Animation에 의한 Rendering 성능을 높이기 위해서
-@mixin Animation_rendering() {
-  position: relative;
-  will-change: transform;
-  overflow: hidden;
-}
-/* ------------------------------------------------------- REPORT CHART COLOR ------------------------------------------------------- */
-//Type1
-$chart_color_type1_01: #546e70;
-$chart_color_type1_02: #607d80;
-$chart_color_type1_03: #789092;
-$chart_color_type1_04: #91a4a5;
-$chart_color_type1_05: #b2bdbe;
-//Type2
-$chart_color_type2_01: #17375e;
-$chart_color_type2_02: #1d5e93;
-$chart_color_type2_03: #558ed5;
-$chart_color_type2_04: #8eb4e3;
-$chart_color_type2_05: #c6d9f1;
+$header-height: max(3.3333vw, 64px);
+$footer-height: max(2.0833vw, 40px);
+$radius-sm: max(0.2083vw, 4px);
+$radius-md: max(0.6250vw, 12px);
+$radius-lg: max(1.2500vw, 24px);
+$radius-xl: max(3.1250vw, 60px);
+$radius-mui: max(0.8333vw, 16px);
+$gutter-xs: max(0.3125vw, 6px); 
+$gutter-sm: max(0.6250vw, 12px);
+$gutter-md: max(1.2500vw, 24px); 
+$gutter-lg: max(1.5625vw, 30px); 
+$gutter-xl : max(2.0833vw, 40px);
+$gutter-xxl : max(3.1250vw, 60px);
+$gutter-mui-sm: max(0.4167vw, 8px); 
+$gutter-mui-md: max(0.8333vw, 16px);

@@ -12,24 +12,20 @@ return (
 		<Dialog
 			open={open}
 			onClose={handleClose}
-			aria-labelledby="alert-dialog-title"
-			aria-describedby="alert-dialog-description"
-			className='experiment-dialog type1'
-			sx={{ '& .MuiDialog-paper': { width: '80%', minHeight: '80%'} }}
-      componentsProps={{ backdrop: { style: { backgroundColor: "transparent" } } }}
-			maxWidth="xs"
-      // TransitionProps={{ onEntering: handleEntering }}
+			sx={{ '& .MuiDialog-paper': { width: '70%', maxWidth: 'max(31.25vw, 600px)'} }}
 		>
-			<DialogTitle>Phone Ringtone</DialogTitle>
-
-			<DialogContent dividers>
-				<DialogContentText sx={{ my:1 }}>
-					Are you sure you want to delete this item?
+			<DialogTitle id="alert-dialog-title">
+				토큰 삭제
+			</DialogTitle>
+			<DialogContent>
+				<DialogContentText sx={{ marginBottom: 1 }}>
+					<span className='token-name'>Test Token Name</span>
+					이 토큰을 삭제할까요?
 				</DialogContentText>
 			</DialogContent>
 			<DialogActions>
-				<Button onClick={handleClose}>Cancel</Button>
-				<Button onClick={handleClose}>Submit</Button>
+				<Button variant="contained" color="gray" onClick={handleClose}>취소</Button>
+				<Button variant="contained" color="error" onClick={handleClose}>삭제</Button>
 			</DialogActions>
 		</Dialog>
 	);
