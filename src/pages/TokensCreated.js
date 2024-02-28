@@ -26,9 +26,9 @@ function TokensCreated() {
 			</Box>	
 
 			<Box className='contents-alert'>
-				{/* <Alert severity="success" variant="filled">
+				<Alert severity="success" variant="filled">
 					<span>Test Token Name</span> 삭제를 완료했습니다.
-				</Alert> */}
+				</Alert>
 				<div className='custom-info'>
 					새 개인 권한 토큰을 복사해 두어야 합니다. 이후에는 다시 확인할 수 없습니다!
 				</div>

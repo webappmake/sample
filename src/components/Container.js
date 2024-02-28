@@ -11,8 +11,7 @@ import TokensCreated from '../pages/TokensCreated';
 export default function Container() { 
   
   return (      
-    <PerfectScrollbar className='container-wrap'>
-     
+    <PerfectScrollbar className='container-wrap'>     
       <Box component='main' className='container'>
         <Box className='contents'>
           <Routes>
